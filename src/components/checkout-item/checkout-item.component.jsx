@@ -9,20 +9,27 @@ import {
 	RemoveButton,
 } from './checkout-item.styles.jsx';
 
-import { useContext } from 'react';
-import { CartContext } from '../../contexts/cart.context';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectCartItems } from '../../store/cart/cart.selector.js';
+import {
+	removeItemFromCart,
+	clearItemFromCart,
+	addItemToCart,
+} from '../../store/cart/cart.action.js';
 
 const CheckoutItem = ({ cartItem }) => {
 	const { name, quantity, price, imageUrl } = cartItem;
+	const dispatch = useDispatch();
+	const cartItems = useSelector(selectCartItems);
 
-	const { removeItemFromCart, addItemToCart, clearItemFromCart } =
-		useContext(CartContext);
+	const removeItemHandler = () =>
+		dispatch(removeItemFromCart(cartItems, cartItem));
 
-	const removeItemHandler = () => removeItemFromCart(cartItem);
+	const clearItemHandler = () =>
+		dispatch(clearItemFromCart(cartItems, cartItem));
 
-	const clearItemHandler = () => clearItemFromCart(cartItem);
-
-	const addItemHandler = () => addItemToCart(cartItem);
+	const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
 
 	return (
 		<CheckoutItemContainer>
@@ -39,6 +46,7 @@ const CheckoutItem = ({ cartItem }) => {
 			</Quantity>
 
 			<Price>${price}</Price>
+
 			<RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
 		</CheckoutItemContainer>
 	);
