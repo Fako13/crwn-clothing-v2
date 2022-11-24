@@ -1,6 +1,12 @@
 import { createAction } from '../../utlils/reducer/reducer.utils';
 import { USER_ACTION_TYPES } from './user.types';
 
+export type User = {
+	email: string;
+	password: string;
+	displayName?: string;
+};
+
 export const setCurrentUser = (user) => {
 	return createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user);
 };
@@ -24,7 +30,7 @@ export const signInSuccess = (user) => {
 	return createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user);
 };
 
-export const signInFailed = (error) => {
+export const signInFailed = (error: Error) => {
 	return createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error);
 };
 
@@ -43,7 +49,7 @@ export const signUpSuccess = (user, additionalDetails) => {
 	});
 };
 
-export const signUpFailed = (error) => {
+export const signUpFailed = (error: Error) => {
 	return createAction(USER_ACTION_TYPES.SIGN_UP_FAILED, error);
 };
 
@@ -55,6 +61,6 @@ export const signOutSuccess = () => {
 	return createAction(USER_ACTION_TYPES.SIGN_OUT_SUCCESS);
 };
 
-export const signOutFailed = (error) => {
+export const signOutFailed = (error: Error) => {
 	return createAction(USER_ACTION_TYPES.SIGN_OUT_FAILED, error);
 };

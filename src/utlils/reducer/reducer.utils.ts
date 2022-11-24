@@ -15,6 +15,7 @@ export function withMatcher<
 
 export function withMatcher(actionCreator: Function) {
 	const type = actionCreator().type;
+
 	return Object.assign(actionCreator, {
 		type,
 		match(action: AnyAction) {

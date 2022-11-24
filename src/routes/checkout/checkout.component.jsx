@@ -12,7 +12,7 @@ import PaymentForm from '../../components/payment-form/payment-form.component.js
 import {
 	selectCartItems,
 	selectCartTotal,
-} from '../../store/cart/cart.selector.js';
+} from '../../store/cart/cart.selector';
 
 const Checkout = () => {
 	const cartItems = useSelector(selectCartItems);
