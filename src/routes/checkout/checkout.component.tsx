@@ -3,11 +3,11 @@ import {
 	CheckoutHeader,
 	HeaderBlock,
 	Total,
-} from './checkout.styles.jsx';
+} from './checkout.styles';
 import { useSelector } from 'react-redux';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import PaymentForm from '../../components/payment-form/payment-form.component.jsx';
+import PaymentForm from '../../components/payment-form/payment-form.component';
 
 import {
 	selectCartItems,
