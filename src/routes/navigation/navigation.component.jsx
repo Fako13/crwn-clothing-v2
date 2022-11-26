@@ -15,7 +15,7 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectCartIsOpen } from '../../store/cart/cart.selector';
-import { signOutStart } from '../../store/user/user.action.js';
+import { signOutStart } from '../../store/user/user.action';
 
 const Navigation = () => {
 	const currentUser = useSelector(selectCurrentUser);
