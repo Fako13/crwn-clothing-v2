@@ -1,4 +1,3 @@
-import { GlobalStyle } from './global.styles';
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import { render } from 'react-dom';
@@ -20,7 +19,6 @@ render(
 			<PersistGate loading={null} persistor={persistor}>
 				<BrowserRouter>
 					<Elements stripe={stripePromise}>
-						<GlobalStyle />
 						<App />
 					</Elements>
 				</BrowserRouter>
