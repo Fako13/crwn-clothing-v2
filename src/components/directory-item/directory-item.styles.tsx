@@ -72,4 +72,8 @@ export const DirectoryItemContainer = styled.div`
 	&:last-child {
 		margin-left: 7.5px;
 	}
+
+	@media screen and (max-width: 800px) {
+		height: 200px;
+	}
 `;
