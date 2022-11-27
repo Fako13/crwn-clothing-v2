@@ -4,6 +4,7 @@ import {
 	EmptyMessage,
 } from './cart-dropdown.styles';
 
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -20,10 +21,10 @@ const CartDropdown = () => {
 
 	const navigate = useNavigate();
 
-	const goToCheckoutHandler = () => {
+	const goToCheckoutHandler = useCallback(() => {
 		navigate('/checkout');
 		dispatch(setIsCartOpened(false));
-	};
+	}, []);
 
 	return (
 		<CartDropdownContainer>
